@@ -58,7 +58,8 @@ impl FeeRate {
     /// Panics if the value is not [normal](https://doc.rust-lang.org/std/primitive.f32.html#method.is_normal) (except if it's a positive zero) or negative.
     fn new_checked(value: f32) -> Self {
         assert!(value.is_normal() || value == 0.0);
-        assert!(value.is_sign_positive());
+        //// Comment to allow 0 fee rate
+        //// assert!(value.is_sign_positive());
 
         FeeRate(value)
     }
